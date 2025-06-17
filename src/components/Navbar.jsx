@@ -11,7 +11,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-logo">Quizopedia</div>
       <div className={`navbar-links ${isOpen ? 'open' : ''}`}>
-        <Link to="/">Home</Link>
+        <Link to="/quizopedia/">Home</Link>
         <Link to="/quizopedia/quiz">Start Quiz</Link>
         <Link to="/quizopedia/scores">Scores</Link>
         <Link to="/quizopedia/about">About</Link>
