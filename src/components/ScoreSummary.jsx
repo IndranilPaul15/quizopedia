@@ -23,10 +23,10 @@ const ScoreSummary = () => {
   else message = "☕ More caffeine, maybe?";
 
   const handleReplay = () => {
-    navigate('/quiz');
+    navigate('/quizopedia/quiz');
   };
   const handleLeader = () => {
-    navigate('/leaderboard');
+    navigate('/quizopedia/leaderboard');
   };
 
   return (
