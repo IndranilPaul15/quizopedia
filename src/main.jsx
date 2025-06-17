@@ -8,7 +8,7 @@ import App from './App.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/quizopedia">
       <App />
     </BrowserRouter>
   </StrictMode>,
