@@ -1,3 +1,4 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -13,12 +14,12 @@ export default function App() {
     <>
       <Navbar/>
       <Routes>
-        <Route path="quizopedia/" element={<Home />} />
-        <Route path="quizopedia/quiz" element={<Quiz />} />
-        <Route path="quizopedia/quiz/start" element={<QuizStart />} />
-        <Route path="quizopedia/scores" element={<ScoreSummary />} />
-        <Route path="quizopedia/leaderboard" element={<Leaderboard />} />
-        <Route path="quizopedia/about" element={<About />} />
+        <Route path="/quizopedia/" element={<Home />} />
+        <Route path="/quizopedia/quiz" element={<Quiz />} />
+        <Route path="/quizopedia/quiz/start" element={<QuizStart />} />
+        <Route path="/quizopedia/scores" element={<ScoreSummary />} />
+        <Route path="/quizopedia/leaderboard" element={<Leaderboard />} />
+        <Route path="/quizopedia/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
