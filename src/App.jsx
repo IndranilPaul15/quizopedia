@@ -14,12 +14,12 @@ export default function App() {
     <>
       <Navbar/>
       <Routes>
-        <Route path="/quizopedia/" element={<Home />} />
-        <Route path="/quizopedia/quiz" element={<Quiz />} />
-        <Route path="/quizopedia/quiz/start" element={<QuizStart />} />
-        <Route path="/quizopedia/scores" element={<ScoreSummary />} />
-        <Route path="/quizopedia/leaderboard" element={<Leaderboard />} />
-        <Route path="/quizopedia/about" element={<About />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/quiz" element={<Quiz />} />
+        <Route path="/quiz/start" element={<QuizStart />} />
+        <Route path="/scores" element={<ScoreSummary />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

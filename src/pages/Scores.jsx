@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Scores = () => {
-  navigate('/quizopedia/leaderboard')
+  navigate('/leaderboard')
   return (
     <div>
       

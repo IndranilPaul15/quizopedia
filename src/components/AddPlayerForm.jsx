@@ -20,7 +20,7 @@ const AddPlayerForm = ({ setPlayerData }) => {
 
     localStorage.setItem('currentPlayer', JSON.stringify(playerInfo));
     setPlayerData(playerInfo);
-    navigate('/quizopedia/quiz');
+    navigate('/quiz');
   };
 
   return (
