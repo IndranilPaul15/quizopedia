@@ -8,7 +8,7 @@ import App from './App.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HashRouter  basename="/quizopedia">
+    <HashRouter  >
       <App />
     </HashRouter >
   </StrictMode>,
