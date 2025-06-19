@@ -317,7 +317,7 @@ const questions = {
           "Doctor Strange: Multiverse of Madness",
           "Ant-Man and the Wasp"
         ],
-        answer: "Doctor Strange: Multiverse of Madness",
+        answer: "Spider-Man: No Way Home",
       },
       {
         question: "Who played the role of Rani Mukerji’s husband in 'Mrs. Chatterjee vs Norway'?",
