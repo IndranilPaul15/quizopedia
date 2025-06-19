@@ -70,7 +70,7 @@ const QuizEngine = ({ playerData }) => {
       attempts.push(result);
       localStorage.setItem('quizAttempts', JSON.stringify(attempts));
       localStorage.removeItem('currentPlayer');
-      window.location.href = '/quizopedia/scores';
+      window.location.href = '/quizopedia/#scores';
     }
   };
 
