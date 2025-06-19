@@ -34,10 +34,10 @@ const Navbar = () => {
         />
       </label>
       <div className={`navbar-links ${isOpen ? 'open' : ''}`}>
-        <Link className="nav-button" to="//" onClick={closeMenu}>Home</Link>
-        <Link className="nav-button" to="/quiz" onClick={closeMenu}>Quiz Play</Link>
-        <Link className="nav-button" to="/leaderboard" onClick={closeMenu}>Leaderboard</Link>
-        <Link className="nav-button" to="/about" onClick={closeMenu}>About</Link>
+        <Link className="nav-button click" to="//" onClick={closeMenu}>Home</Link>
+        <Link className="nav-button click" to="/quiz" onClick={closeMenu}>Quiz Play</Link>
+        <Link className="nav-button click" to="/leaderboard" onClick={closeMenu}>Leaderboard</Link>
+        <Link className="nav-button click" to="/about" onClick={closeMenu}>About</Link>
       </div>
     </nav>
   );

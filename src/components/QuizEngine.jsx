@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import questionsData from '../data/questions';
 import './QuizEngine.css';
+import useSound from '../hooks/useSound';
 const QuizEngine = ({ playerData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
@@ -9,17 +10,21 @@ const QuizEngine = ({ playerData }) => {
   const [questionTimings, setQuestionTimings] = useState([]);
   const [questionStartTime, setQuestionStartTime] = useState(new Date());
 
-
   const category = playerData.category;
   const difficulty = playerData.difficulty;
   const questions = questionsData[category][difficulty];
   const currentQuestion = questions[currentIndex];
+
+  const playCorrect = useSound("/quizopedia/sounds/correct.mp3");
+  const playWrong = useSound("/quizopedia/sounds/wrong.mp3");
+  const playTimeout = useSound("/quizopedia/sounds/timeout.mp3");
 
   useEffect(() => {
     const countdown = setInterval(() => {
       setTimer((prev) => {
         if (prev === 1) {
           clearInterval(countdown);
+          playTimeout();
           handleNext();
         }
         return prev - 1;
@@ -48,64 +53,67 @@ const QuizEngine = ({ playerData }) => {
     setSelected(option);
     if (option === currentQuestion.answer) {
       setScore((prev) => prev + 1);
-    }
-  };
-
-
-  const handleNext = () => {
-    if (currentIndex + 1 < questions.length) {
-      setQuestionStartTime(new Date());
-      setCurrentIndex(currentIndex + 1);
-      setSelected(null);
-      setTimer(15);
+      playCorrect();
     } else {
-      const result = {
-        ...playerData,
-        score,
-        total: questions.length,
-        endTime: new Date().toISOString(),
-        timings: questionTimings,
-      };
-      const attempts = JSON.parse(localStorage.getItem('quizAttempts') || '[]');
-      attempts.push(result);
-      localStorage.setItem('quizAttempts', JSON.stringify(attempts));
-      localStorage.removeItem('currentPlayer');
-      window.location.href = '/quizopedia/#scores';
+      playWrong();
     }
-  };
+};
 
-  return (
-    <div className="quiz-wrapper fade-in">
-      <div className="quiz-container">
-        <div className="quiz-header-bar">
-          <div className="quiz-badge">📂 {category}</div>
-          <div className="quiz-badge">⏱ {timer}s</div>
-        </div>
 
-        <h2 className="quiz-step">Question {currentIndex + 1} of {questions.length}</h2>
-        <p className="quiz-question">{currentQuestion.question}</p>
+const handleNext = () => {
+  if (currentIndex + 1 < questions.length) {
+    setQuestionStartTime(new Date());
+    setCurrentIndex(currentIndex + 1);
+    setSelected(null);
+    setTimer(15);
+  } else {
+    const result = {
+      ...playerData,
+      score,
+      total: questions.length,
+      endTime: new Date().toISOString(),
+      timings: questionTimings,
+    };
+    const attempts = JSON.parse(localStorage.getItem('quizAttempts') || '[]');
+    attempts.push(result);
+    localStorage.setItem('quizAttempts', JSON.stringify(attempts));
+    localStorage.removeItem('currentPlayer');
+    window.location.href = '/quizopedia/#scores';
+  }
+};
 
-        <div className="quiz-option-group">
-          {currentQuestion.options.map((opt, i) => (
-            <button
-              key={i}
-              className={`quiz-pill ${selected === opt ? (opt === currentQuestion.answer ? 'correct' : 'wrong') : ''}`}
-              onClick={() => handleOptionClick(opt)}
-              disabled={!!selected}
-            >
-              {opt}
-            </button>
-          ))}
-        </div>
-
-        {selected && (
-          <button className="next-btn" onClick={handleNext}>
-            Next →
-          </button>
-        )}
+return (
+  <div className="quiz-wrapper fade-in">
+    <div className="quiz-container">
+      <div className="quiz-header-bar">
+        <div className="quiz-badge">📂 {category}</div>
+        <div className="quiz-badge">⏱ {timer}s</div>
       </div>
+
+      <h2 className="quiz-step">Question {currentIndex + 1} of {questions.length}</h2>
+      <p className="quiz-question">{currentQuestion.question}</p>
+
+      <div className="quiz-option-group">
+        {currentQuestion.options.map((opt, i) => (
+          <button
+            key={i}
+            className={`quiz-pill ${selected === opt ? (opt === currentQuestion.answer ? 'correct' : 'wrong') : ''}`}
+            onClick={() => handleOptionClick(opt)}
+            disabled={!!selected}
+          >
+            {opt}
+          </button>
+        ))}
+      </div>
+
+      {selected && (
+        <button className="next-btn" onClick={handleNext}>
+          Next →
+        </button>
+      )}
     </div>
-  );
+  </div>
+);
 };
 
 export default QuizEngine;

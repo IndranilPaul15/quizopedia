@@ -68,7 +68,7 @@ const AddPlayerForm = ({ setPlayerData }) => {
             <option value="hard">💀 Hard</option>
           </select>
         </div>
-        <button type="submit" className="button" disabled={!name}>Start Quiz</button>
+        <button type="submit" className="button click" disabled={!name}>Start Quiz</button>
       </form>
     </div>
 

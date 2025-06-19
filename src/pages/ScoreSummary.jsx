@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ScoreSummary.css';
+import useSound from '../hooks/useSound';
 
 const ScoreSummary = () => {
   const [latestResult, setLatestResult] = useState(null);
   const navigate = useNavigate();
+  const playCelebrate = useSound("/quizopedia/sounds/complete.mp3");
 
   useEffect(() => {
     const attempts = JSON.parse(localStorage.getItem('quizAttempts') || '[]');
     if (attempts.length > 0) {
       setLatestResult(attempts[attempts.length - 1]);
     }
+    playCelebrate();
   }, []);
 
 
@@ -47,8 +50,8 @@ const ScoreSummary = () => {
         <h3 className="result-message">{message}</h3>
 
         <div className="result-buttons">
-          <button className="button" onClick={handleReplay}>Play Again</button>
-          <button className="button" onClick={handleLeader}>📊 Leaderboard</button>
+          <button className="button click" onClick={handleReplay}>Play Again</button>
+          <button className="button click" onClick={handleLeader}>📊 Leaderboard</button>
         </div>
       </div>
       <div className="mt-4 performance-box">

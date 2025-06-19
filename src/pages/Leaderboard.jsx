@@ -73,7 +73,7 @@ const Leaderboard = () => {
                         <td>{timeTaken}s</td>
                         <td>{date}</td>
                         <td>
-                          <button className="delete-btn" onClick={() => handleDelete(a.endTime)}>🗑️</button>
+                          <button className="delete-btn click" onClick={() => handleDelete(a.endTime)}>🗑️</button>
 
                         </td>
                       </tr>

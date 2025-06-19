@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
@@ -11,9 +11,23 @@ import NotFound from './pages/NotFound';
 import Footer from './components/Footer';
 
 export default function App() {
+
+  useEffect(() => {
+    const handleClick = (e) => {
+      if (e.target.classList.contains('click')) {
+        const clickSound = new Audio('/quizopedia/sounds/click.mp3');
+        clickSound.volume = 1;
+        clickSound.play();
+      }
+    };
+
+    document.addEventListener('click', handleClick);
+    return () => document.removeEventListener('click', handleClick);
+  }, []);
+
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/quiz" element={<Quiz />} />
@@ -23,7 +37,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </>
   );
 }

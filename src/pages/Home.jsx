@@ -26,7 +26,7 @@ const Home = () => {
         <p>The ultimate quiz showdown, Prepare for a thrilling quiz, Ignite your intellect, and test your knowledge, and have fun along the way
           <span> Get ready to quiz!</span>
         </p>
-        <button className="play mt-2" onClick={() => navigate('/quiz')}>Let's Play</button>
+        <button className="play mt-2 click" onClick={() => navigate('/quiz')}>Let's Play</button>
       </div>
       <div className="carousel-container">
         <div className="carousel-image">
