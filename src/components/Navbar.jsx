@@ -9,11 +9,14 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      <div className="navbar-logo">Quizopedia</div>
+      <div className="navbar-logo">
+        <img className='logo-img' src="src/assets/quiz.png" alt="🧠" />
+        <span className='logo'>Quizopedia</span>
+      </div>
       <div className={`navbar-links ${isOpen ? 'open' : ''}`}>
-        <Link to="/">Home</Link>
-        <Link to="/quiz">Start Quiz</Link>
-        <Link to="/scores">Scores</Link>
+        <Link to="//">Home</Link>
+        <Link to="/quiz">Quiz Play</Link>
+        <Link to="/scores">Leaderboard</Link>
         <Link to="/about">About</Link>
       </div>
       <button className="hamburger" onClick={toggleMenu}>

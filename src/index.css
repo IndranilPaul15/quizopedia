@@ -1,13 +1,16 @@
 * {
-  margin: 0;
+  margin: auto;
   padding: 0;
-  box-sizing: border-box;
 }
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
-  padding-top: 60px; /* to offset fixed navbar */
+  background-color: #2f0175;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column; 
+  min-height: 100vh;
+  padding-left: 5rem;
+
 }
 .fade-in {
   animation: fadeIn 1s ease-in;
@@ -15,4 +18,9 @@ body {
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+@media (max-width: 768px) {
+  body {
+    padding-left: 0rem;
+  }
 }
