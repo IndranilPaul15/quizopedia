@@ -6,8 +6,12 @@
   margin-top: 30px;
   background-color: #ffffff00;
   backdrop-filter: blur(10px);
+  min-height: 500px;
+  margin-bottom: 10px;
 }
-
+.no{
+  font-size: 3rem;
+}
 .leaderboard-title {
   text-align: center;
   font-size: 2rem;
