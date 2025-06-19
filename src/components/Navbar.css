@@ -1,3 +1,14 @@
+:root {
+  --bar-width: 32px;
+  --bar-height: 4px;
+  --hamburger-gap: 5px;
+  --foreground: white;
+  --background: #4b0b76;
+  --animation-timing: 300ms ease-in-out;
+  --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+  --x-width: calc(var(--hamburger-height) * 1.41421356237);
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -11,51 +22,171 @@
   padding: 10px 20px;
   z-index: 999;
 }
+
 .navbar-logo {
   font-size: 1.5rem;
   font-weight: bold;
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
+  color: white;
 }
-.logo{
+
+.logo {
   padding-right: 15rem;
 }
-.logo-img{
+
+.logo-img {
   width: 40px;
   height: 40px;
 }
+
+.navbar-links {
+  display: flex;
+  gap: 1rem;
+  transition: max-height 0.4s ease-in-out, opacity 0.3s ease;
+}
+
 .navbar-links a {
   color: white;
-  margin: 0 10px;
   text-decoration: none;
 }
-.hamburger {
+
+.hamburger-menu {
   display: none;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: white;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  cursor: pointer;
+  z-index: 1001;
 }
+
+.hamburger-menu input {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background: var(--foreground);
+  border-radius: 999px;
+  transition: all var(--animation-timing);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.hamburger-menu::before,
+.hamburger-menu::after {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background: var(--foreground);
+  border-radius: 999px;
+  transform-origin: left center;
+  transition: all var(--animation-timing);
+}
+
+.hamburger-menu:has(input:checked)::before {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburger-menu:has(input:checked)::after {
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburger-menu input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+.nav-button {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 10px 24px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(75, 11, 118, 0.4);
+}
+
+.nav-button:active {
+  transform: scale(0.95);
+  background: rgba(75, 11, 118, 0.4);
+  box-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.2),
+    0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+.nav-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 2px;
+  background: linear-gradient(45deg, #a84bf0, #5f0fff, #d500f9);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
 @media (max-width: 768px) {
   .navbar-links {
-    display: none;
     flex-direction: column;
     position: absolute;
-    top: 50px;
-    right: 10px;
-    background: #444;
+    top: 60px;
+    right: 45px;
+    background: rgba(255, 255, 255, 0.1);
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
+    gap: 10px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: max-height 0.4s ease, opacity 0.3s ease, transform 0.3s ease;
   }
+
   .navbar-links.open {
+    max-height: 500px;
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+  }
+
+  .hamburger-menu {
     display: flex;
   }
-  .hamburger {
-    display: block;
+
+  .logo {
+    padding-right: 5rem;
   }
-  .logo{
-  padding-right: 5rem;
 }
-}
+

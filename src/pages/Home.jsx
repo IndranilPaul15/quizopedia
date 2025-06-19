@@ -8,7 +8,7 @@ const images = [
   'Home-image (3).png',
   'Home-image (4).png'
 
-];
+]; 
 const Home = () => {
   const navigate = useNavigate();
   const [index, setIndex] = useState(0);
@@ -26,7 +26,7 @@ const Home = () => {
         <p>The ultimate quiz showdown, Prepare for a thrilling quiz, Ignite your intellect, and test your knowledge, and have fun along the way
           <span> Get ready to quiz!</span>
         </p>
-        <button className="play-button mt-2" onClick={() => navigate('/quiz')}>Let's Play</button>
+        <button className="play mt-2" onClick={() => navigate('/quiz')}>Let's Play</button>
       </div>
       <div className="carousel-container">
         <div className="carousel-image">

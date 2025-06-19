@@ -4,10 +4,11 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Quiz from './pages/Quiz';
 import QuizStart from './components/QuizEngine';
-import ScoreSummary from './components/ScoreSummary';
-import Leaderboard from './components/Leaderboard';
+import ScoreSummary from './pages/ScoreSummary';
+import Leaderboard from './pages/Leaderboard';
 import About from './pages/About';
 import NotFound from './pages/NotFound';
+import Footer from './components/Footer';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer/>
     </>
   );
 }

@@ -1,0 +1,132 @@
+.leaderboard-card {
+  width: 60vw;
+  padding: .7rem;
+  border-radius: 24px;
+  box-shadow: 0 10px 50px rgba(253, 253, 253, 0.639);
+  margin-top: 30px;
+  background-color: #ffffff00;
+  backdrop-filter: blur(10px);
+}
+
+.leaderboard-title {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.sort-select {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.sort-dropdown {
+  padding: 8px 12px;
+  width: 60%;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background-color: #f3f4f6;
+  color: #4b0b76;
+  cursor: pointer;
+}
+
+.leaderboard-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: #f3f4f6;
+  color: #4b0b76;
+  font-weight: bold;
+  padding: 12px;
+  border-bottom: 2px solid #e5e7eb;
+}
+.table-scroll {
+  max-height: 390px;
+  overflow-y: auto;
+  border-radius: 12px;
+}
+.abc{
+  margin-top: 70px;
+}
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding:10px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 1rem;
+}
+
+.leaderboard-table th {
+  background-color: #f3f4f6;
+  color: #4b0b76;
+  border: 0.5px solid #231d3c;
+}
+
+.leaderboard-table tr:hover {
+  background-color: #1010ec19;
+}
+
+.leaderboard-row {
+  animation: fadeInSlide 0.5s ease forwards;
+  opacity: 0;
+  transform: translateY(10px);
+}
+.truncate {
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #dc2626;
+  transition: transform 0.2s ease;
+}
+
+.delete-btn:hover {
+  transform: scale(1.2);
+}
+
+thead {
+  margin-bottom: 1rem;
+}
+
+@keyframes fadeInSlide {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.top-scorer {
+  background: linear-gradient(to top, #fff9c4, #fff176);
+  font-weight: bold;
+  color: #4b0b76;
+}
+
+@media screen and (max-width: 768px) {
+  .leaderboard-card {
+    width: 90vw;
+    padding: 1rem;
+  }
+  .leaderboard-title{
+    margin-bottom: 3rem;
+  }
+  .abc {
+    margin-bottom: 50px;
+  }
+  .table-scroll {
+    max-height: 420px;
+  }
+}

@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import questionsData from '../data/questions';
-
+import './QuizEngine.css';
 const QuizEngine = ({ playerData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [selected, setSelected] = useState(null);
   const [timer, setTimer] = useState(15);
+  const [questionTimings, setQuestionTimings] = useState([]);
+  const [questionStartTime, setQuestionStartTime] = useState(new Date());
+
 
   const category = playerData.category;
   const difficulty = playerData.difficulty;
@@ -27,50 +30,80 @@ const QuizEngine = ({ playerData }) => {
 
   const handleOptionClick = (option) => {
     if (selected !== null) return;
+
+    const timeTaken = (new Date() - questionStartTime) / 1000;
+
+    setQuestionTimings(prev => [
+      ...prev,
+      {
+        index: currentIndex,
+        question: currentQuestion.question,
+        selected: option,
+        correctAnswer: currentQuestion.answer,
+        time: timeTaken,
+        correct: option === currentQuestion.answer
+      }
+    ]);
+
     setSelected(option);
     if (option === currentQuestion.answer) {
       setScore((prev) => prev + 1);
     }
   };
 
+
   const handleNext = () => {
     if (currentIndex + 1 < questions.length) {
+      setQuestionStartTime(new Date());
       setCurrentIndex(currentIndex + 1);
       setSelected(null);
       setTimer(15);
     } else {
-      // store result and navigate to score page
       const result = {
         ...playerData,
         score,
         total: questions.length,
         endTime: new Date().toISOString(),
+        timings: questionTimings,
       };
       const attempts = JSON.parse(localStorage.getItem('quizAttempts') || '[]');
       attempts.push(result);
       localStorage.setItem('quizAttempts', JSON.stringify(attempts));
       localStorage.removeItem('currentPlayer');
-      window.location.href = '/scores';
+      window.location.href = '/quizopedia/scores';
     }
   };
 
   return (
-    <div className="quiz-box mt-4">
-      <h2>Question {currentIndex + 1} of {questions.length}</h2>
-      <p>{currentQuestion.question}</p>
-      <div className="mt-2">
-        {currentQuestion.options.map((opt, i) => (
-          <button
-            key={i}
-            className={`button mt-2 ${selected === opt ? (opt === currentQuestion.answer ? 'correct' : 'wrong') : ''}`}
-            onClick={() => handleOptionClick(opt)}
-          >
-            {opt}
+    <div className="quiz-wrapper fade-in">
+      <div className="quiz-container">
+        <div className="quiz-header-bar">
+          <div className="quiz-badge">📂 {category}</div>
+          <div className="quiz-badge">⏱ {timer}s</div>
+        </div>
+
+        <h2 className="quiz-step">Question {currentIndex + 1} of {questions.length}</h2>
+        <p className="quiz-question">{currentQuestion.question}</p>
+
+        <div className="quiz-option-group">
+          {currentQuestion.options.map((opt, i) => (
+            <button
+              key={i}
+              className={`quiz-pill ${selected === opt ? (opt === currentQuestion.answer ? 'correct' : 'wrong') : ''}`}
+              onClick={() => handleOptionClick(opt)}
+              disabled={!!selected}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+
+        {selected && (
+          <button className="next-btn" onClick={handleNext}>
+            Next →
           </button>
-        ))}
+        )}
       </div>
-      <p className="mt-2">⏱ Time Left: {timer}s</p>
-      {selected && <button className="button mt-2" onClick={handleNext}>Next</button>}
     </div>
   );
 };
