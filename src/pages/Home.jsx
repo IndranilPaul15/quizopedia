@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './Home.css';
 const images = [
-  'public/Home-image (1).png',
-  'public/Home-image (2).png',
-  'public/Home-image (3).png',
-  'public/Home-image (4).png'
+  'Home-image (1).png',
+  'Home-image (2).png',
+  'Home-image (3).png',
+  'Home-image (4).png'
 
 ];
 const Home = () => {
