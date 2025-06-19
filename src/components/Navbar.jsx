@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        <img className='logo-img' src="public/quiz.png" alt="🧠" />
+        <img className='logo-img' src="/quiz.png" alt="🧠" />
         <span className='logo'>Quizopedia</span>
       </div>
       <div className={`navbar-links ${isOpen ? 'open' : ''}`}>
