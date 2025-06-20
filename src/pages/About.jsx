@@ -8,7 +8,7 @@ const About = () => {
 
         <p className="about-text">
           <strong>Quizopedia</strong> is a modern and interactive quiz platform designed to make learning engaging and enjoyable. It allows users to test their knowledge across multiple categories such as General Knowledge, Science, and Sports, while offering real-time feedback, score tracking, and a clean, intuitive interface.
-          It allows users to test their knowledge across various categories like <em>General Knowledge</em>, <em>Science</em>, and <em>Sports</em>.
+          It allows users to test their knowledge across various categories like <em>General Knowledge</em>, <em>Science</em>, <em>Sports</em> and <em>Movies</em>.
         </p>
 
         <div className="about-section">
