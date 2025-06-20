@@ -3,7 +3,7 @@
 
 > An interactive and fully responsive quiz application built with React, Vite, and modern CSS — offering a seamless and engaging user experience with score tracking, leaderboard, and performance analytics.
 
-![alt text](image-3.png)<!-- Replace with your own image -->
+![alt text](public/image-3.png)
 
 ---
 
@@ -102,9 +102,8 @@ Each has:
 
 | Home Page                          | Quiz Page                            | Score Summary + Review                |
 |-----------------------------------|--------------------------------------|---------------------------------------|
-| ![alt text](image-1.png) | ![alt text](image-2.png) | ![alt text](image.png)       |
+| ![alt text](public/image-1.png) | ![alt text](public/image-2.png) | ![alt text](public/image.png)       |
 
-> *(Replace these with your actual screenshots or illustrations.)*
  
 ---
 
