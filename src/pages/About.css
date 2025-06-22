@@ -150,3 +150,63 @@
     font-size: 1rem;
     color: #4b0b76;
 }
+@media (max-width: 480px) {
+  .about-wrapper {
+    padding: 2rem 1rem;
+    flex-direction: column;
+  }
+
+  .about-card {
+    padding: 1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .about-title {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .about-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .about-list li {
+    font-size: 0.95rem;
+  }
+
+  .meme {
+    font-size: 1.2rem;
+  }
+
+  .meme-image {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .tech-card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+  }
+
+  .tech-card {
+    padding: 0.75rem;
+    border-radius: 12px;
+  }
+
+  .tech-card-img {
+    width: 70px;
+    height: 70px;
+    padding: 1rem;
+  }
+
+  .tech-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 0.5rem;
+  }
+
+  .tech-name {
+    font-size: 0.9rem;
+  }
+}
