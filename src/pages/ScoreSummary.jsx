@@ -6,7 +6,7 @@ import useSound from '../hooks/useSound';
 const ScoreSummary = () => {
   const [latestResult, setLatestResult] = useState(null);
   const navigate = useNavigate();
-  const playCelebrate = useSound("/quizopedia/sounds/complete.mp3");
+  const playCelebrate = useSound("/sounds/complete.mp3");
 
   useEffect(() => {
     const attempts = JSON.parse(localStorage.getItem('quizAttempts') || '[]');

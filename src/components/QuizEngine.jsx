@@ -15,9 +15,9 @@ const QuizEngine = ({ playerData }) => {
   const questions = questionsData[category][difficulty];
   const currentQuestion = questions[currentIndex];
 
-  const playCorrect = useSound("/quizopedia/sounds/correct.mp3");
-  const playWrong = useSound("/quizopedia/sounds/wrong.mp3");
-  const playTimeout = useSound("/quizopedia/sounds/timeout.mp3");
+  const playCorrect = useSound("/sounds/correct.mp3");
+  const playWrong = useSound("/sounds/wrong.mp3");
+  const playTimeout = useSound("/sounds/timeout.mp3");
 
   useEffect(() => {
     const countdown = setInterval(() => {
@@ -78,7 +78,7 @@ const handleNext = () => {
     attempts.push(result);
     localStorage.setItem('quizAttempts', JSON.stringify(attempts));
     localStorage.removeItem('currentPlayer');
-    window.location.href = '/quizopedia/#scores';
+    window.location.href = '/#scores';
   }
 };
 

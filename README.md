@@ -9,7 +9,7 @@
 
 ## 🚀 Live Demo
 
-👉 [Visit Quizopedia](https://indranilpaul15.github.io/quizopedia/)
+👉 [Visit Quizopedia](https://quizo-pedia.netlify.app/)
 
 ---
 

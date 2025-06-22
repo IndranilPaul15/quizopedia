@@ -15,7 +15,7 @@ export default function App() {
   useEffect(() => {
     const handleClick = (e) => {
       if (e.target.classList.contains('click')) {
-        const clickSound = new Audio('/quizopedia/sounds/click.mp3');
+        const clickSound = new Audio('/sounds/click.mp3');
         clickSound.volume = 1;
         clickSound.play();
       }
