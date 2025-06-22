@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <nav className="navbar" ref={navRef}>
-      <Link to='//' className="navbar-logo">
+      <Link to='' className="navbar-logo">
         <img className='logo-img' src="quiz.png" alt="🧠" />
         <span className='logo'>Quizopedia</span>
       </Link>
@@ -34,7 +34,7 @@ const Navbar = () => {
         />
       </label>
       <div className={`navbar-links ${isOpen ? 'open' : ''}`}>
-        <Link className="nav-button click" to="//" onClick={closeMenu}>Home</Link>
+        <Link className="nav-button click" to="/" onClick={closeMenu}>Home</Link>
         <Link className="nav-button click" to="/quiz" onClick={closeMenu}>Quiz Play</Link>
         <Link className="nav-button click" to="/leaderboard" onClick={closeMenu}>Leaderboard</Link>
         <Link className="nav-button click" to="/about" onClick={closeMenu}>About</Link>
