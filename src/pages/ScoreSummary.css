@@ -52,10 +52,11 @@
   font-size: 1rem;
 }
 
-.wrap{
+.wrap {
   margin-top: 7rem;
   width: 500px;
 }
+
 @media (max-width: 768px) {
   .wrap {
     width: 100%;
@@ -63,6 +64,7 @@
     margin-bottom: 10rem;
   }
 }
+
 .performance-box {
   margin: 1rem 10px;
   padding: 1.5rem;
@@ -72,6 +74,7 @@
   color: #333;
   text-align: center;
 }
+
 .review-box {
   color: #333;
   background: #fff8f8;
@@ -82,25 +85,31 @@
   margin: 1rem 10px;
   text-align: center;
 }
+
 .review-list {
   list-style-type: none;
   padding-left: 0;
   margin-top: 1rem;
 }
+
 .review-item {
   margin-bottom: 1.2rem;
   font-size: 1rem;
   line-height: 1.6;
 }
+
 .review-item em {
   color: #dc2626;
   font-weight: bold;
 }
+
 .correct {
   color: #16a34a;
   font-weight: 600;
 }
+
 .wrong {
   color: #dc2626;
   font-weight: 600;
 }
+
