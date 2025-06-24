@@ -36,6 +36,11 @@
 }
 @media (max-width: 768px) {
   .footer{
-    margin-top:0px;
+    margin:0px;
+    font-size: 13px;
+
+  }
+  .scroll-top{
+    right: -18px;
   }
 }

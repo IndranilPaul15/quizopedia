@@ -63,6 +63,9 @@
     margin-top: 6rem;
     margin-bottom: 10rem;
   }
+  .result-card {
+    padding: 3rem 1rem;
+  }
 }
 
 .performance-box {

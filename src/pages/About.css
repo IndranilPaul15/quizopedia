@@ -157,7 +157,6 @@
   }
 
   .about-card {
-    padding: 1rem;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   }
 
@@ -182,6 +181,7 @@
   .meme-image {
     height: auto;
     max-width: 100%;
+    padding: 0;
   }
 
   .tech-card-grid {
